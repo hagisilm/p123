@@ -4,8 +4,10 @@ import com.example.p123.entity.Notice;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Getter
+@Setter
 @NoArgsConstructor
 public class NoticeSaveRequestDto {
     private String title;

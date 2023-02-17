@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +36,7 @@
   <a class="btn btn-primary" type="submit">Job List</a>
   <a  class="btn btn-primary" type="submit">Q & A</a>
   <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <a  class="btn btn-primary me-md-2" type="button">Add Notice</a>
+    <a href="/notice/save" class="btn btn-primary">작성</a>
   </div>
   <table id="table" class="table table-hover table-striped text-center">
     <thead>
@@ -48,15 +48,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:each="notice: ${noticeList}"th:object="${notice}">
+    <tr th:each="notice: ${noticeList}">
       <td></td>
-      <td><a th:href="@{/notice/{id}(id=${id.noticeId})}">[[${notice.title}]]</a></td>
-      <td th:text="*{content}"></td>
+      <td><a th:href="@{/notice/{id}(id=${notice.id})}">[[${notice.title}]]</a></td>
+      <td th:text="${notice.content}">g</td>
       <td th:text="${#temporals.format(notice.createdAt, 'yyyy-MM-dd')}"></td>
     </tr>
     </tbody>
   </table>
-  <a href="/notice/save" class="btn btn-primary">작성</a>
+
   <script type="text/javascript" th:src="@{/js/click.js}"></script>
 </main>
 </body>

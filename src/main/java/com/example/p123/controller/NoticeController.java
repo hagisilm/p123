@@ -8,6 +8,7 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RequiredArgsConstructor
 @Controller
@@ -25,5 +26,17 @@ public class NoticeController {
     public String noticeSave(Model model) {
         model.addAttribute("saveForm", new NoticeSaveRequestDto());
         return "saveForm";
+    }
+
+    @GetMapping("/notice/{id}")
+    public String notice(@PathVariable Long id, Model model) {
+        model.addAttribute("notice", noticeService.findById(id));
+        return "detail";
+    }
+
+    @GetMapping("/admin/notice/update/{id}")
+    public String noticeUpdate(@PathVariable Long id, Model model) {
+        model.addAttribute("notice", noticeService.findById(id));
+        return "updateForm";
     }
 }
