@@ -20,23 +20,23 @@ public class NoticeController {
     public String noticeList(Model model,
                              @PageableDefault(size = 10) Pageable pageable) {
         model.addAttribute("noticeList", noticeService.findAllDesc(pageable));
-        return "noticeList";
+        return "notice/noticeList";
     }
     @GetMapping("/notice/save")
     public String noticeSave(Model model) {
         model.addAttribute("saveForm", new NoticeSaveRequestDto());
-        return "saveForm";
+        return "notice/saveForm";
     }
 
     @GetMapping("/notice/{id}")
     public String notice(@PathVariable Long id, Model model) {
         model.addAttribute("notice", noticeService.findById(id));
-        return "detail";
+        return "notice/detail";
     }
 
-    @GetMapping("/admin/notice/update/{id}")
+    @GetMapping("/notice/update/{id}")
     public String noticeUpdate(@PathVariable Long id, Model model) {
         model.addAttribute("notice", noticeService.findById(id));
-        return "updateForm";
+        return "notice/update";
     }
 }

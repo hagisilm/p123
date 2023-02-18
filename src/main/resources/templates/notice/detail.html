@@ -30,6 +30,8 @@
 
   <div class="container mt-3 " style="width: 800px">
     <button class="btn btn-success" th:onclick="history.back()">돌아가기</button>
+    <a th:href="@{/notice/update/{id}(id=${notice.id})}" class="btn btn-warning">수정</a>
+
     <button id="btn-delete" class="btn btn-danger">삭제</button>
 
     <br/> <br/>
