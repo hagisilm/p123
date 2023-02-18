@@ -1,4 +1,4 @@
-package com.example.p123.controller;
+package com.example.p123.controller.api;
 
 import com.example.p123.dto.NoticeSaveRequestDto;
 import com.example.p123.dto.NoticeUpdateRequestDto;
